@@ -1,4 +1,3 @@
-
 :root {
   /* Default theme variables */
   --bg-color: #ffffff;
@@ -12,7 +11,7 @@
   --about-img-place-bg: #dfe0e6;
   --about-img-before: #747474;
   --timeline-color: #e3e5e9;
-  --timeline-li:#747474;
+  --timeline-li: #747474;
   --timeline-title: #747474;
   --timeline-detail: #f4f5f8;
   --page-service: #ffffff;
@@ -20,9 +19,8 @@
   --set-menu: #ffffff;
 }
 
-
 .dark-theme {
-  --bg-color: #121212; 
+  --bg-color: #121212;
   --text-color: #ffffff;
   --footer-bg: #000000; /* Footer background in dark theme */
   --footer-text: #ffffff; /* Footer text in dark theme */
@@ -33,14 +31,11 @@
   --timeline-color: #ffffff;
   --timeline-title: #747474;
   --timeline-detail: #000000;
-  --timeline-li:#747474;
+  --timeline-li: #747474;
   --page-service: #000000;
   --icon-color: #000000;
   --set-menu: #000000;
- 
 }
-
-
 
 body,
 html {
@@ -49,39 +44,62 @@ html {
   overflow-x: hidden;
 }
 
-/* Checkbox styles */
+/* Theme Toggle Button styles */
 .theme-toggle-wrapper {
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  margin-left: 20px;
 }
 
-.theme-toggle {
-  appearance: none;
-  width: 50px;
-  height: 25px;
-  background-color: var(--text-color);
-  border-radius: 25px;
-  position: relative;
-  outline: none;
+#theme-toggle {
+  background: none;
+  border: none;
   cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.theme-toggle::before {
-  content: "";
-  position: absolute;
-  width: 20px;
-  height: 20px;
+  padding: 8px;
   border-radius: 50%;
-  background-color: var(--bg-color);
-  top: 2.5px;
-  left: 5px;
-  transition: transform 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background-color 0.3s,
+    transform 0.2s;
+  color: var(--text-color);
+  outline: none;
 }
 
-.theme-toggle:checked::before {
-  transform: translateX(25px);
+#theme-toggle:hover {
+  background-color: rgba(128, 128, 128, 0.1);
+  transform: scale(1.1);
+}
+
+/* Icons within button - Bootstrap Icons version */
+#theme-toggle i {
+  font-size: 20px;
+  line-height: 1;
+  transition: transform 0.3s;
+  display: block;
+}
+
+#theme-toggle .moon-icon {
+  color: #ffffff;
+}
+
+/* Show/Hide icons based on theme */
+.dark-theme #theme-toggle .sun-icon {
+  display: block;
+}
+
+.dark-theme #theme-toggle .moon-icon {
+  display: none;
+}
+
+body:not(.dark-theme) #theme-toggle .sun-icon {
+  display: none;
+}
+
+body:not(.dark-theme) #theme-toggle .moon-icon {
+  display: block;
 }
 
 .social-icons ul {
@@ -158,7 +176,9 @@ html {
 .filterable-button .btn:focus {
   background-color: #747474;
   color: #fff;
-  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #747474;
+  box-shadow:
+    0 0 0 2px #fff,
+    0 0 0 4px #747474;
 }
 
 /* Page */
@@ -265,7 +285,7 @@ html {
   right: -35px;
   width: 100%;
   height: 100%;
-  border: 5px solid var(--about-img-before); 
+  border: 5px solid var(--about-img-before);
   z-index: -1;
 }
 
@@ -342,10 +362,6 @@ html {
   background-color: var(--page-service);
 }
 
-
-
-
-
 .card-service {
   margin: 16px auto;
   padding: 50px;
@@ -391,12 +407,9 @@ html {
   text-align: left;
 }
 
-
-
 .twitter-tweet {
   color: white !important;
   padding: 10px !important;
-
 }
 
 .twitter-tweet iframe {
@@ -404,7 +417,6 @@ html {
   width: 100% !important;
   height: 365px !important;
 }
-
 
 .card-service1 {
   margin: 16px auto;
@@ -537,8 +549,6 @@ html {
   border-left: 0;
 }
 
-
-
 .page-client .row .item:last-child {
   border-right: 0;
 }
@@ -632,14 +642,12 @@ html {
   color: var(--about-text);
 }
 
-
-
 .vg-maps {
   position: relative; /* Create a positioning context */
   right: 25px;
   margin-left: 60px;
-  padding-bottom: 56.25%;  /* 16:9 aspect ratio (height is 56.25% of width) */
-  height: 0;    /* Set initial height to 0 for responsive scaling */
+  padding-bottom: 56.25%; /* 16:9 aspect ratio (height is 56.25% of width) */
+  height: 0; /* Set initial height to 0 for responsive scaling */
   overflow: hidden; /* Ensure content outside the bounds is hidden */
   border-radius: 20px; /* Optional: Add rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add subtle shadow */
@@ -658,17 +666,11 @@ html {
 .vg-contact-form {
   margin: 0 auto;
   padding: 30px 0;
-  
-
 }
-
-
 
 .vg-footer .ms-2 {
   margin-left: 0.8rem; /* Adds spacing between the icon and text */
 }
-
-
 
 @media (max-width: 1200px) {
   .card-service h4 {
@@ -690,9 +692,6 @@ html {
   }
 }
 
-
-
-
 @media (max-width: 992px) {
   .card-service-certification {
     padding: 10px;
@@ -706,7 +705,6 @@ html {
     font-size: 0.65rem;
   }
 }
-
 
 /* Footer */
 .vg-footer {
@@ -728,14 +726,12 @@ html {
 .vg-footer .list-unstyled li,
 .footer-info li,
 .footer-info span,
-#Copyright{
+#Copyright {
   margin-bottom: 6px;
   font-size: 21px;
   color: #fff;
   line-height: 2rem;
 }
-
-
 
 /* Theme color style */
 /* Theme Red */
@@ -748,7 +744,9 @@ html {
 .theme-red .filterable-button .btn:focus {
   background-color: #ef3724;
   color: #fff;
-  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #ef3724;
+  box-shadow:
+    0 0 0 2px #fff,
+    0 0 0 4px #ef3724;
 }
 
 .theme-red .page-about .img-place::before {
@@ -783,7 +781,9 @@ html {
 .theme-blue .filterable-button .btn:focus {
   background-color: #2960f7;
   color: #fff;
-  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #2960f7;
+  box-shadow:
+    0 0 0 2px #fff,
+    0 0 0 4px #2960f7;
 }
 
 .theme-blue .page-home .badge {
@@ -827,7 +827,9 @@ html {
 .theme-green .filterable-button .btn:focus {
   background-color: #8cc63f;
   color: #fff;
-  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #8cc63f;
+  box-shadow:
+    0 0 0 2px #fff,
+    0 0 0 4px #8cc63f;
 }
 
 .theme-green .page-home .badge {
@@ -871,7 +873,9 @@ html {
 .theme-orange .filterable-button .btn:focus {
   background-color: #fd7e14;
   color: #fff;
-  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #fd7e14;
+  box-shadow:
+    0 0 0 2px #fff,
+    0 0 0 4px #fd7e14;
 }
 
 .theme-orange .page-home .badge {
@@ -914,7 +918,9 @@ html {
 .theme-purple .filterable-button .btn:focus {
   background-color: #6f42c1;
   color: #fff;
-  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #6f42c1;
+  box-shadow:
+    0 0 0 2px #fff,
+    0 0 0 4px #6f42c1;
 }
 
 .theme-purple .page-home .badge {
