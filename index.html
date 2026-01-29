@@ -59,6 +59,8 @@
       type="text/css"
       href="../assets/css/topbar.virtual.css"
     />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   </head>
   <body class="theme-red" id="theme">
     <!-- Back to top button -->
@@ -158,13 +160,10 @@
             </ul>
           </div>
           <div class="theme-toggle-wrapper">
-            <input
-              type="checkbox"
-              id="theme-toggle"
-              class="theme-toggle"
-              onclick="toggleTheme()"
-              style="margin-left: 20px"
-            />
+            <button id="theme-toggle" onclick="toggleTheme()" title="Toggle Theme">
+              <i class="bi bi-moon moon-icon"></i>
+              <i class="bi bi-brightness-low-fill sun-icon"></i>
+            </button>
           </div>
         </div>
       </div>
@@ -873,10 +872,8 @@
         // Handle dark theme
         if (isDark) {
           document.body.classList.add("dark-theme");
-          document.getElementById("theme-toggle").checked = true;
         } else {
           document.body.classList.remove("dark-theme");
-          document.getElementById("theme-toggle").checked = false;
         }
       };
 
@@ -909,19 +906,19 @@
           // Apply the theme
           applyTheme(
             colorClass,
-            document.getElementById("theme-toggle").checked
+            document.body.classList.contains("dark-theme")
           );
         });
       });
       // Event listener for theme toggle
-      document.getElementById("theme-toggle").addEventListener("click", () => {
-        const isDark = document.getElementById("theme-toggle").checked;
+      function toggleTheme() {
+        const isDark = !document.body.classList.contains("dark-theme");
         // Save the dark theme state to localStorage
         localStorage.setItem("dark-theme", isDark);
 
         // Apply the dark theme
         applyTheme(localStorage.getItem("theme-class"), isDark);
-      });
+      }
     </script>
   </body>
 </html>
